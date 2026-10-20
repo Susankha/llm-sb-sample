@@ -1,0 +1,47 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="VulnerableLibrariesLocal" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="isIgnoringEnabled" value="true" />
+      <option name="ignoredModules">
+        <list>
+          <option value="LLM_sample" />
+          <option value="LLM_sample" />
+          <option value="LLM_sample" />
+          <option value="LLM_sample" />
+          <option value="LLM_sample" />
+          <option value="LLM_sample" />
+          <option value="LLM_sample" />
+          <option value="LLM_sample" />
+          <option value="LLM_sample" />
+        </list>
+      </option>
+      <option name="ignoredPackages">
+        <list>
+          <option value="org.apache.tomcat.embed:tomcat-embed-core:11.0.24" />
+          <option value="org.apache.tomcat.embed:tomcat-embed-websocket:11.0.24" />
+          <option value="io.netty:netty-codec-http2:4.2.17.Final" />
+          <option value="tools.jackson.core:jackson-databind:3.1.5" />
+          <option value="ch.qos.logback:logback-classic:1.5.38" />
+          <option value="io.netty:netty-codec-http:4.2.17.Final" />
+          <option value="io.netty:netty-codec-http3:4.2.17.Final" />
+          <option value="io.netty:netty-codec-classes-quic:4.2.17.Final" />
+          <option value="tools.jackson.core:jackson-core:3.1.5" />
+        </list>
+      </option>
+      <option name="ignoredReasons">
+        <list>
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Other" />
+          <option value="Other" />
+          <option value="Other" />
+          <option value="Other" />
+          <option value="Other" />
+          <option value="Not exploitable" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

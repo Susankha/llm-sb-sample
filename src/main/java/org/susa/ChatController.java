@@ -1,6 +1,5 @@
-package org.susa;
+/*package org.susa;
 
-import dev.langchain4j.model.ollama.OllamaChatModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,4 +23,4 @@ public class ChatController {
     log.info("===== ChatController ====== ");
     return aiAssistant.chat(message);
   }
-}
+}*/
