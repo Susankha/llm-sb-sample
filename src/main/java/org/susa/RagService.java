@@ -2,6 +2,7 @@ package org.susa;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvisor;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.stereotype.Service;
 
@@ -10,11 +11,10 @@ import org.springframework.stereotype.Service;
 public class RagService {
 
   private final ChatClient client;
-  private final VectorStore vecStore;
 
   public RagService(ChatClient.Builder chatClientBuilder, VectorStore vecStore) {
-    this.client = chatClientBuilder.build();
-    this.vecStore = vecStore;
+    this.client = chatClientBuilder.defaultAdvisors(QuestionAnswerAdvisor.builder(vecStore).build())
+        .build();
     log.info("============ RagService construct  ====");
   }
 
@@ -23,15 +23,15 @@ public class RagService {
     String promptText = """
         Answer the question clearly and concisely.
         Use bullet points and Java examples where applicable.
-
+        
         Context (may be empty):
         %s
-
+        
         Question:
         %s
         """ + question;
     log.info("🧾 Prompt : {}", promptText);
     log.info("🧾 Prompt length: {}", promptText.length());
-    return client.prompt(promptText).call().content();
+    return client.prompt(promptText).user(question).call().content();
   }
 }
