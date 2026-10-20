@@ -1,2 +1,2 @@
-# llm-sb-sample
-LLM with langchain4j and springboot 
+# Llm-Sb-Rag
+LLM with spring boot and RAG
