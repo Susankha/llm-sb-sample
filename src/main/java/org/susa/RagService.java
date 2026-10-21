@@ -16,10 +16,20 @@ public class RagService {
   private final ChatClient client;
 
   public RagService(ChatClient.Builder chatClientBuilder, VectorStore vecStore) {
+    String customTemplate = """
+        You are a helpful assistant. Use the following context to answer the question.
+        If the answer is not in the context, say "I do not know".
+        CONTEXT:
+        {question_answer_context}
+        QUESTION:
+        {query}
+        """;
+    log.info("============ RagService customTemplate " + customTemplate);
     this.client = chatClientBuilder.defaultSystem(
             "You are a expert Java developer. Answer the question clearly"
                 + " and concisely,professional tone")
-        .defaultAdvisors(QuestionAnswerAdvisor.builder(vecStore).build())
+        .defaultAdvisors(QuestionAnswerAdvisor.builder(vecStore).promptTemplate(
+            PromptTemplate.builder().template(customTemplate).build()).build())
         .build();
     log.info("============ RagService construct  ====");
   }
